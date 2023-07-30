@@ -7,6 +7,7 @@ import {
 import { Col, Row } from "antd";
 import { Avatar, Card } from "antd";
 import Hero from "@/components/hero/Hero";
+import Link from "next/link";
 const { Meta } = Card;
 
 export default function Home({ allPcProduct }) {
@@ -35,43 +36,45 @@ export default function Home({ allPcProduct }) {
       >
         {firstSixPcP?.map((pcp, index) => (
           <Col className="gutter-row" span={8}>
-            <Card
-              className=" mx-24 my-10"
-              style={{
-                width: 300,
-              }}
-              cover={
-                <img
-                  alt="example"
-                  // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                  src={pcp?.image}
-                />
-              }
-            >
-              <Meta
-                avatar={
-                  <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
+            <Link href={`/product/${pcp?._id}`}>
+              <Card
+                className=" mx-24 my-10"
+                style={{
+                  width: 300,
+                }}
+                cover={
+                  <img
+                    alt="example"
+                    // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                    src={pcp?.image}
+                  />
                 }
-                title={pcp?.productName}
-              />
-              <span>
-                <p className=" mt-3 font-bold">Price: {pcp?.price}</p>
-              </span>
-              <div className=" mt-3 flex justify-between">
+              >
                 <Meta
-                  title={pcp?.catagory}
-                  // description={pcp?.price}
-                />{" "}
-                <Meta
-                  title={pcp?.status}
-                  // description={pcp?.price}
+                  avatar={
+                    <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
+                  }
+                  title={pcp?.productName}
                 />
-                <Meta
-                  title={pcp?.avarageRating}
-                  // description={pcp?.price}
-                />
-              </div>
-            </Card>
+                <span>
+                  <p className=" mt-3 font-bold">Price: {pcp?.price}</p>
+                </span>
+                <div className=" mt-3 flex justify-between">
+                  <Meta
+                    title={pcp?.catagory}
+                    // description={pcp?.price}
+                  />{" "}
+                  <Meta
+                    title={pcp?.status}
+                    // description={pcp?.price}
+                  />
+                  <Meta
+                    title={pcp?.avarageRating}
+                    // description={pcp?.price}
+                  />
+                </div>
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>
@@ -84,7 +87,7 @@ export const getStaticProps = async () => {
     "https://pc-builder-server-frz8zqn6j-saymon-shoab.vercel.app/api/v1/pc"
   );
   const data = await res.json();
-  console.log("all product data", data);
+  // console.log("all product data", data);
   return {
     props: {
       allPcProduct: data.data,

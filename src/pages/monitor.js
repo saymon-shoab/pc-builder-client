@@ -1,6 +1,9 @@
 import React from "react";
-
-const monitor = () => {
+import { Col, Row } from "antd";
+import { Avatar, Card } from "antd";
+import Link from "next/link";
+const { Meta } = Card;
+const monitor = ({ allPcProduct }) => {
   return (
     <div>
       <h1>All Monitor hear</h1>
@@ -9,3 +12,16 @@ const monitor = () => {
 };
 
 export default monitor;
+
+export const getStaticProps = async () => {
+  const res = await fetch(
+    "https://pc-builder-server-frz8zqn6j-saymon-shoab.vercel.app/api/v1/pc"
+  );
+  const data = await res.json();
+  // console.log("all product data", data);
+  return {
+    props: {
+      allPcProduct: data.data,
+    },
+  };
+};

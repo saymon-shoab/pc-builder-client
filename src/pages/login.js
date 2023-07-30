@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 
+const { Meta } = Card;
 const login = () => {
   return (
     <div className="relative py-16 bg-gradient-to-br from-sky-50 to-gray-200">

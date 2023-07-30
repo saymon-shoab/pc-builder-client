@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session } = useSession();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -9,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="sticky top-0 overflow-hidden bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
@@ -61,9 +63,19 @@ const Navbar = () => {
 
         {/* Login Button */}
         <div className="flex gap-3">
-          <button className="hidden md:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-            <Link href="/login">Login</Link>
-          </button>
+          {session?.user ? (
+            <button
+              onClick={() => signOut()}
+              className="hidden md:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+            >
+              logout
+            </button>
+          ) : (
+            <button className="hidden md:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+              <Link href="/login">Login</Link>
+            </button>
+          )}
+
           <button className="hidden md:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
             pc builder
           </button>
