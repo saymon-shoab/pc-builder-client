@@ -39,22 +39,22 @@ const Navbar = () => {
           <Link href="/">
             <span className="text-white cursor-pointer">Home</span>
           </Link>
-          <Link href="/products/cpu">
+          <Link href="/processor">
             <span className="text-white cursor-pointer">CPU / Processor</span>
           </Link>
-          <Link href="/products/motherboard">
+          <Link href="/motherboard">
             <span className="text-white cursor-pointer">Motherboard</span>
           </Link>
-          <Link href="/products/ram">
+          <Link href="/ram">
             <span className="text-white cursor-pointer">RAM</span>
           </Link>
-          <Link href="/products/power-supply">
+          <Link href="/powerSypply">
             <span className="text-white cursor-pointer">Power Supply Unit</span>
           </Link>
-          <Link href="/products/storage">
+          <Link href="/storage">
             <span className="text-white cursor-pointer">Storage Device</span>
           </Link>
-          <Link href="/products/monitor">
+          <Link href="/monitor">
             <span className="text-white cursor-pointer">Monitor</span>
           </Link>
         </div>
