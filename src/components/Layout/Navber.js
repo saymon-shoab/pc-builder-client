@@ -77,7 +77,7 @@ const Navbar = () => {
           )}
 
           <button className="hidden md:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-            pc builder
+            <Link href="/pcbuilder">Pc Builder</Link>
           </button>
         </div>
       </div>
