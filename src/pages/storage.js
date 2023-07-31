@@ -67,6 +67,9 @@ const storage = ({ allPcProduct }) => {
                     // description={pcp?.price}
                   />
                 </div>
+                <div className="w-full mt-1 bg-yellow-400 rounded-md p-2 text-center font-bold">
+                  <button>Add to Builder</button>
+                </div>
               </Card>
             </Link>
           </Col>

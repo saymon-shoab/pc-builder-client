@@ -50,7 +50,7 @@ const Navbar = () => {
           <Link href="/ram">
             <span className="text-white cursor-pointer">RAM</span>
           </Link>
-          <Link href="/powerSypply">
+          <Link href="/powerSupply">
             <span className="text-white cursor-pointer">Power Supply Unit</span>
           </Link>
           <Link href="/storage">

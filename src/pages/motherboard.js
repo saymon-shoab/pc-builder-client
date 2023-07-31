@@ -12,7 +12,7 @@ const motherboard = ({ allPcProduct }) => {
     <>
       <div className="flex justify-center items-center mt-10">
         <h1 className="text-4xl font-bold text-center text-gray-600">
-          Storage Section
+          Motherboard Catagory
         </h1>
       </div>
       <Row
@@ -67,6 +67,9 @@ const motherboard = ({ allPcProduct }) => {
                     title={pcp?.avarageRating}
                     // description={pcp?.price}
                   />
+                </div>
+                <div className="w-full mt-1 bg-yellow-400 rounded-md p-2 text-center font-bold">
+                  <button>Add to Builder</button>
                 </div>
               </Card>
             </Link>
