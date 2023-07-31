@@ -36,13 +36,7 @@ const storage = ({ allPcProduct }) => {
                 style={{
                   width: 300,
                 }}
-                cover={
-                  <img
-                    alt="example"
-                    // src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                    src={pcp?.image}
-                  />
-                }
+                cover={<img alt="example" src={pcp?.image} />}
               >
                 <Meta
                   avatar={
@@ -66,9 +60,6 @@ const storage = ({ allPcProduct }) => {
                     title={pcp?.avarageRating}
                     // description={pcp?.price}
                   />
-                </div>
-                <div className="w-full mt-1 bg-yellow-400 rounded-md p-2 text-center font-bold">
-                  <button>Add to Builder</button>
                 </div>
               </Card>
             </Link>

@@ -1,6 +1,7 @@
 import CategoryCard from "@/components/CategoryCard";
-import Link from "next/link";
+import PcBuildCard from "@/components/PcBuildCard/PcBuildCard";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const categories = [
   {
@@ -35,15 +36,17 @@ const categories = [
   },
 ];
 const pcbuilder = () => {
-  const handleCategoryClick = (categoryUrl) => {
-    <Link href={categoryUrl}></Link>;
-    // Implement your logic for when a category is selected here
-    console.log(`Category selected: ${categoryUrl}`);
-  };
+  const productPcps = useSelector((state) => state.cpbuilder.productPcps);
+
   return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-center mb-8">PC Builder</h1>
+        <div className="flex flex-col space-y-4 items-center">
+          {productPcps?.map((cat) => (
+            <PcBuildCard key={cat._id} cat={cat} />
+          ))}
+        </div>
         <div className="flex flex-col space-y-4 items-center">
           {categories.map((cat) => (
             <CategoryCard
@@ -51,8 +54,6 @@ const pcbuilder = () => {
               category={cat.category}
               image={cat.image}
               url={cat.categoryUrl}
-              //   onClick={() => handleCategoryClick(cat.categoryUrl)}
-              //   onClick={(cat) => <Link href={cat.categoryUrl}></Link>}
             />
           ))}
         </div>

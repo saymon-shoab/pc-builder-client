@@ -1,8 +1,18 @@
+import { addPcp } from "@/redux/features/pcbuilder/pcbuilderSlice";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const ProductDetailPage = ({ singlePcProduct }) => {
+  const dispatch = useDispatch();
+  const handleAddPcp = (pcp) => {
+    // const newPcp = {
+    //   productName: "CPU",
+    //   image: "/cpu.jpg",
+    //   price: "200",
+    // };
+    dispatch(addPcp(singlePcProduct));
+  };
   return (
     <>
       <div className="mx-auto px-4 py-8">
@@ -75,6 +85,9 @@ const ProductDetailPage = ({ singlePcProduct }) => {
               </p>
             </div>
             {/* Reviews */}
+            <div className="w-full mt-1 bg-yellow-400 rounded-md p-2 text-center font-bold">
+              <button onClick={handleAddPcp}>Add to Builder</button>
+            </div>
             <div className="mt-4">
               <h3 className="text-lg font-semibold mb-2">Reviews</h3>
               <div className="bg-gray-200 p-4 rounded-lg">
