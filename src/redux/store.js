@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-
+import pcbuilderReducer from "./features/pcbuilder/pcbuilderSlice";
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    cpbuilder: pcbuilderReducer,
+  },
 });
 
 // export type RootState = ReturnType<typeof store.getState>
